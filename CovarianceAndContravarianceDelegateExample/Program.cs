@@ -8,8 +8,8 @@ namespace CovarianceAndContravarianceDelegateExample
     class Program
     {
         delegate Car CarFactoryDel(int id, string name);
-        delegate void LogICECarDetailsDel(ICECar car);  // ICE = spalinowy
-        delegate void LogEVCarDetailsDel(EVCar car);    // EV = elektrtyczny
+        delegate void LogICECarDetailsDel(ICECar car);  // ICE -> spalinowy
+        delegate void LogEVCarDetailsDel(EVCar car);    // EV -> elektrtyczny
         static void Main(string[] args)
         {
             CarFactoryDel carFactoryDel = ReturnICECar;
@@ -29,7 +29,6 @@ namespace CovarianceAndContravarianceDelegateExample
             logEVCarDetailsDel(evCar as EVCar);
 
             Console.ReadKey();
-
         }
 
         static void LogCarDetails(Car car)
@@ -41,7 +40,6 @@ namespace CovarianceAndContravarianceDelegateExample
                     sw.WriteLine($"Objekt Typu: {car.GetType()}");
                     sw.WriteLine($"Szczegóły pojazdu: {car.GetCarDetails()}");
                 };
-
             }
             else if (car is EVCar)
             {
